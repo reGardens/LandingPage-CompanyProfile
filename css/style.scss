@@ -1,0 +1,672 @@
+$biruTerang: #1a1aff;
+$biruGelap: #00004d;
+$biruPalingGelap: #00001a;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.header {
+  background-image: url(../img/bgHeader.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    z-index: 1;
+    color: white;
+    text-shadow: 0 0 5px black;
+    height: 100vh;
+    width: 70vw;
+    overflow: hidden;
+    .topNav {
+      z-index: 1;
+      position: relative;
+      display: grid;
+      grid-template-areas: "hLeft hRight";
+      margin: 2em 0;
+      p {
+        padding-left: 14px;
+      }
+      p:nth-child(1) {
+        font-weight: 900;
+      }
+      p:nth-child(2) {
+        font-size: 13px;
+      }
+      .hLeft {
+        grid-area: hLeft;
+        height: 4em;
+        width: 34vw;
+        display: flex;
+        align-items: center;
+        img {
+          width: 4em;
+          height: 4em;
+        }
+        p {
+          font-size: 20px;
+          font-weight: 900;
+        }
+      }
+      .hRight {
+        grid-area: hRight;
+        height: 4em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .icon1, .icon2 {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+    }
+
+    .navMenu {
+      height: 4em;
+      .indicatorLine {
+        border-top: 2px solid silver;
+        height: 4em;
+        width: 70vw;
+        position: absolute;
+      }
+      ul {
+        padding-top: 13px;
+        li {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .burgerMenu, .delete {
+            width: 2em;
+            display: none;
+            cursor: pointer;
+          }
+          a {
+            text-decoration: none;
+            color: white;
+            p:nth-child(1) {
+              font-weight: 900;
+            }
+            p:nth-child(2) {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+
+    .navJumbo {
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .textJumbo {
+        text-align: center;
+        p:nth-child(2) {
+          font-size: 30px;
+          font-weight: 900;
+        }
+        button {
+          color: $biruTerang;
+          font-weight: 700;
+          margin-top: 10px;
+          padding: 10px;
+          width: 10em;
+          border: 1px solid transparent;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .header {
+    .container {
+      .topNav {
+        grid-template-areas:
+          "hLeft"
+          "hRight";
+        .hLeft {
+          width: 100%;
+          justify-content: center;
+        }
+        .hRight {
+          justify-content: center;
+          .icon1,.icon2 {justify-content: center;}
+        }
+      }
+      .navJumbo {height: 40vh;}
+    }
+  }
+}
+@media (max-width: 900px) {
+  .header {
+    .container {
+      .navMenu {
+        .indicatorLine {display: none;}
+        ul {
+          li {
+            justify-content: center;
+            .burgerMenu {display: flex;}
+            a {display: none;}
+          }
+        }
+      }
+    }
+  }
+  .active {
+    background-image: url(../img/bgSideNav.svg);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 50;
+    .container {
+      .topNav {display: none;}
+      .navMenu {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ul {
+          position: relative;
+          width: 100%;
+          li {
+            display: grid;
+            gap: 1em;
+            .img {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              padding-bottom: 2em;
+              .burgerMenu {display: none;}
+              .delete {display: flex;}
+            }
+            a {
+              text-align: center;
+              display: grid;
+              width: 100vw;
+              border: 5px solid transparent;
+            }
+            a:hover, .lActive {
+              border-left: 5px solid $biruPalingGelap;
+              border-right: 5px solid $biruPalingGelap;
+              color: $biruPalingGelap;
+            }
+          }
+        }
+      }
+      .navJumbo {display: none;}
+    }
+  }
+}
+
+.content1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  width: 100vw;
+  position: relative;
+  .container {
+    display: grid;
+    grid-template-areas:"card1 card2 card3 card4 card5";
+    box-shadow: 0 0 20px black;
+    color: $biruTerang;
+    overflow-x: hidden;
+    .card1 {grid-area: card1;}
+    .card2 {grid-area: card2;}
+    .card3 {grid-area: card3;}
+    .card4 {grid-area: card4;}
+    .card5 {grid-area: card5;}
+    img {
+      margin-bottom: 10px;
+      width: 3em;
+    }
+    .card1,.card2,.card3,.card4,.card5 {
+      background-color: white;
+      text-align: center;
+      padding: 2.3em;
+      .p {
+        p:nth-child(1) {font-weight: 900;}
+        p:nth-child(2) {font-size: 13px;}
+      }
+    }
+  }
+}
+@media (max-width : 769px) {
+  .content1 {
+    transform: translateY(-20%);
+    .container {
+      grid-template-areas: 
+      'card1 card2'
+      'card3 card4'
+      'card5 card5';
+    }
+  }
+}
+@media (max-width : 481px) {
+  .content1 {
+    .container {
+      transform: translateY(20%);
+      grid-template-areas: 
+      'card1'
+      'card2'
+      'card3'
+      'card4'
+      'card5';
+    }
+  }
+}
+
+.content2 {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+  .container {
+    width: 70vw;
+    height: 85%;
+    display: grid;
+    top: 0;
+    grid-template-areas:
+      "row1"
+      "row2";
+    .row1,.row2 {
+      color: $biruTerang;
+    }
+    .row1 {
+      grid-area: row1;
+      text-align: center;
+      height: 11em;
+      .title {
+        p {
+          font-size: 3vw;
+          font-weight: 900;
+        }
+      }
+      .btnRadio {
+        margin-top: 1em;
+        display: grid;
+        justify-content: center;
+        gap: 13vw;
+        grid-template-areas: "btn1 btn2 btn3";
+        .btn1 {grid-area: btn1;}
+        .btn1 {grid-area: btn2;}
+        .btn1 {grid-area: btn3;}
+      }
+    }
+    .row2 {
+      // background-color: blue;
+      grid-area: row2;
+      display: grid;
+      grid-template-areas: "lLeft rRight";
+      .left {
+        grid-area: lLeft;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 38vw;
+        img {
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          left: 0;
+          width: 30vw;
+          box-shadow: 0 0 30px rgb(117, 117, 233);
+        }
+        img:nth-child(1) {transform: translateX(-30px);}
+        img:nth-child(2) {transform: translateY(-45px);}
+        img:nth-child(3) {transform: translate(40px, 30px);}
+      }
+      .right {
+        grid-area: rRight;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32vw;
+        color: $biruTerang;
+        .p {
+          text-align: justify;
+          width: 50vw;
+        }
+      }
+    }
+  }
+}
+@media (max-width : 619px) {
+  .content2 {
+    height: 120vh;
+    .container {
+      .row1 {
+        margin-bottom: 1em;
+        .btnRadio {gap: 1em;}
+      }
+      .row2 {
+        margin-top: 5em;
+        grid-template-areas: 
+        "lLeft"
+        "rRight";
+        justify-content: center;
+        .left {margin-left: 3.2em;}
+        .right {margin-top: 8em;width: 100%;}
+      }
+    }
+  }
+}
+@media (max-width : 481px) {
+  .content2 {
+    height: 140vh;
+    margin-top: 5em;
+    .container {
+      .row1 {
+        .btnRadio {
+          gap: 1em;
+          grid-template-areas: 
+          "btn1"
+          "btn2"
+          "btn3";
+        }
+      }
+      .row2 {
+        margin-top: 15em;
+        .right {
+          margin-top: 6em;
+          width: 100%;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.content3 {
+  width: 100vw;
+  height: 70vh;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 70vw;
+    height: 60vh;
+    color: $biruTerang;
+    display: grid;
+    grid-template-areas: "kiri tengah kanan";
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    overflow-y: hidden;
+    .kiri,.tengah,.kanan {
+      text-align: justify;
+      height: 85%;
+      .gambar {
+        width: 100%;
+        height: 6.5em;
+      }
+      p:nth-child(1) {font-weight: 900;}
+      p:nth-child(2) {padding: 10px 0;font-size: 13px;
+      }
+    }
+    .kiri {
+      grid-area: kiri;
+      p:nth-child(1) {font-size: 25px;text-align: left;}
+      p:nth-child(2) {padding: 20px 0;}
+      p:nth-child(3) {font-weight: 900;}
+    }
+    .tengah {grid-area: tengah;}
+    .kanan {grid-area: kanan;}
+  }
+}
+@media (max-width : 939px) {
+  .content3 {
+    .container {
+      height: 100%;
+    }
+  }
+}
+@media (max-width : 813px) {
+  .content3 {
+    height: 150vh;
+    .container {
+      gap: 0;
+      height: 100%;
+      grid-template-areas:
+      "kiri"
+      "tengah"
+      "kanan";
+      .kiri,.tengah,.kanan {text-align: center;}
+      .kiri {
+        p:nth-child(1) {text-align: center;}
+      }
+      .kanan {
+        padding-bottom: 2em;
+      }
+    }
+  }
+}
+
+.content4 {
+  width: 100vw;
+  height: 80vh;
+  background-color: $biruGelap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // overflow: hidden;
+  .container {
+    position: relative;
+    width: 70vw;
+    color: black;
+    display: grid;
+    grid-template-areas:
+      "card1 card2 card3"
+      "card4 card5 card6";
+    gap: 2em;
+    .image {
+      background-color: $biruGelap;
+      padding: 0 15px;
+      position: absolute;
+      width: 4.5em;
+      transform: translate(50%, -50%);
+    }
+    .p {
+      border: 1px solid rgb(153, 153, 153);
+      padding: 30px 20px 20px 20px;
+      font-size: 13px;
+      text-align: justify;
+      color: white;
+      p:nth-child(1) {
+        font-weight: 900;
+        margin-bottom: 7px;
+      }
+    }
+    .card1 {
+      grid-area: card1;
+      text-align: right;
+      p {
+        font-size: 25px;
+        text-align: left;
+        font-weight: 900;
+        color: white;
+      }
+      img {width: 2em;}
+    }
+    .card2 {
+      grid-area: card2;
+      .pActive {border: 2px solid white;}
+    }
+    .card3 {grid-area: card3;}
+    .card4 {grid-area: card4;}
+    .card5 {grid-area: card5;}
+    .card6 {grid-area: card6;}
+  }
+}
+@media (max-width : 1002px) {
+  .content4 {
+    height: 140vh;
+    .container {
+      margin-top: 3em;
+      grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6";
+      .card1 {text-align: center;}
+    }
+  }
+}
+@media (max-width : 769px) {
+  .content4 {
+    height: 205vh;
+    .container {
+      grid-template-areas:
+      "card1"
+      "card2"
+      "card3"
+      "card4"
+      "card5"
+      "card6";
+      .card1 {
+        text-align: center;
+        .judul {text-align: center;}
+      }
+    }
+  }
+}
+@media (max-width : 481px) {.content4 {height: 260vh;}}
+
+.footer {
+  width: 100vw;
+  height: 70vh;
+  background-color: $biruPalingGelap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  overflow: hidden;
+  .container {
+    width: 80vw;
+    display: grid;
+    gap: 2em;
+    grid-template-areas: "info1 info2 info3 info4";
+    justify-content: space-between;
+    .info1,.info2,.info3,.info4 {
+      text-align: justify;
+      color: white;
+      .judul {font-weight: 900;}
+    }
+    .info1 {
+      grid-area: info1;
+      width: 18em;
+      margin-right: 3em;
+      .row1 {
+        display: flex;
+        align-items: center;
+        img {width: 4em;}
+        p {
+          font-weight: 900;
+          margin-left: 1em;
+        }
+      }
+      .iconSosmed {
+        display: flex;
+        justify-content: space-between;
+        img {width: 1.3em;}
+      }
+      .p {padding: 2em 0;}
+    }
+    .info2 {
+      grid-area: info2;
+      width: 10em;
+      ul {
+        margin-top: 1em;
+        font-size: 13px;
+        li {
+          padding: 5px 0;
+          list-style-type: square;
+          a {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .info3 {
+      grid-area: info3;
+      width: 10em;
+      ul {
+        margin-top: 1em;
+        font-size: 13px;
+        li {
+          padding: 5px 0;
+          list-style-type: square;
+          a {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .info4 {
+      grid-area: info4;
+      p:nth-child(2) {
+        margin: 1.2em 0;
+        font-size: 13px;
+      }
+    }
+  }
+}
+@media (max-width : 1100px) {
+  .footer {
+    height: 75vh;
+    justify-content: center;
+    .container {
+      gap: 5px;
+      grid-template-areas: 
+      "info1 info1 info1"
+      " info2 info3 info4";
+      .info1,.info2,.info3,.info4 {
+        text-align: center;
+        ul li {list-style: none;}
+      }
+      .info1 {
+        width: 100%;
+        .row1 {justify-content: center;}
+        .p {text-align: center;}
+        .iconSosmed {justify-content: center;gap: 10px;}
+      }
+    }
+  }
+}
+@media (max-width : 600px) {
+  .footer {
+    height: 130vh;
+    .container {
+      height: 100%;
+      grid-template-areas: 
+      "info1"
+      "info2"
+      "info3"
+      "info4";
+      .info1,.info2,.info3, .info4 {
+        width: 100%;
+      }
+    }
+  }
+}
